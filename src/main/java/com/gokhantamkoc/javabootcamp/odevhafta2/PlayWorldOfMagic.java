@@ -1,5 +1,7 @@
 package com.gokhantamkoc.javabootcamp.odevhafta2;
 
+import java.util.Arrays;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,7 +45,15 @@ public class PlayWorldOfMagic implements CommandLineRunner {
 		
 		int spellsUsed = 0;
 		// ______ BASLANGIC _______ Kodunuz buradan baslamali
+		Arrays.sort(spellDamageInfo);
+		float damage = spellDamageInfo[spellDamageInfo.length-1];
 		
+		for	(float bossHP : bossHPs) {
+			while(bossHP >0) {
+				bossHP = bossHP - damage;
+				spellsUsed++;
+			}
+		}
 		// ______ SON _______ Kodunuz burada bitmeli
 		/* NOT: ______ BASLANGIC _______ ve ______ SON _______ 
 		 * arasina istediginiz kadar sayida satir ekleyebilirsiniz.
